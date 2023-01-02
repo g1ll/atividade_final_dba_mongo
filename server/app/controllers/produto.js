@@ -98,6 +98,9 @@ const update = async (req, res) => {
 
         formData.importado && (newProduto.importado = true)
         formData.desconto && (newProduto.desconto = +formData.desconto)
+        
+        formData.nome && (newProduto.nome = formData.nome)
+        formData.descricao && (newProduto.descricao = formData.descricao)
 
         if (!(await model.updateProduto(newProduto)))
             throw new Error("Erro ao atualizar produto!")
